@@ -553,14 +553,14 @@ all = ["mypy (>=1.11.2)", "pytest (>=8.3.2)", "ruff (>=0.6.2)"]
 
 [[package]]
 name = "jinja-rdf"
-version = "0.1.8"
+version = "0.1.10"
 description = ""
 optional = false
 python-versions = "<4.0,>=3.11"
 groups = ["main"]
 files = [
-    {file = "jinja_rdf-0.1.8-py3-none-any.whl", hash = "sha256:4b9e3fc48615a00ceb9b515310776fdbde01f8583f5f9bc8849bae412dd71646"},
-    {file = "jinja_rdf-0.1.8.tar.gz", hash = "sha256:21aa9661089fe1ef6fb646d6cfa98cd469f2bf586b7f13b58e0d952e38c7efb8"},
+    {file = "jinja_rdf-0.1.10-py3-none-any.whl", hash = "sha256:c3b21c1e499e7b376adb8d63f8c76e717f3929ae2ac8ad2f1e58192730cdd0a7"},
+    {file = "jinja_rdf-0.1.10.tar.gz", hash = "sha256:ba5e38039f9c5f8ed04a0cf3c96d8436b8a2ffa16acb1958a8a1c9a783f1a4ac"},
 ]
 
 [package.dependencies]
