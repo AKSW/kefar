@@ -12,10 +12,17 @@ dependencies = [
     "jinja-rdf (>=0.1.8,<0.2.0)",
     "jinja2 (>=3.1.6,<4.0.0)",
     "rdflib (>=7.6.0,<8.0.0)",
-    "loguru (>=0.7.3,<0.8.0)"
+    "loguru (>=0.7.3,<0.8.0)",
+    "pyyaml (>=6.0.3,<7.0.0)",
+    "mkdocs (>=1.6.1,<2.0.0)",
 ]
 
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "fastapi[standard] (>=0.141.1,<0.142.0)"
+]
