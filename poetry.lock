@@ -816,6 +816,24 @@ platformdirs = ">=2.2.0"
 pyyaml = ">=5.1"
 
 [[package]]
+name = "mkrdf"
+version = "0.2.4"
+description = ""
+optional = false
+python-versions = "<4.0,>=3.11"
+groups = ["main"]
+files = [
+    {file = "mkrdf-0.2.4-py3-none-any.whl", hash = "sha256:75d94135238155f9577781c5e0b513bfe17feddcee0cb0c63c4153d3beceeac7"},
+    {file = "mkrdf-0.2.4.tar.gz", hash = "sha256:a5bada67091ed9c0cc0e3810be46a43dc35e878f1055707aa0be4493604051d4"},
+]
+
+[package.dependencies]
+jinja-rdf = ">=0.1.8,<0.2.0"
+loguru = ">=0.7.3,<0.8.0"
+mkdocs = ">=1.6.1,<2.0.0"
+rdflib = ">=7.1.4,<9.0.0"
+
+[[package]]
 name = "packaging"
 version = "26.3"
 description = "Core utilities for Python packages"
@@ -2033,4 +2051,4 @@ dev = ["black (>=19.3b0) ; python_version >= \"3.6\"", "pytest (>=4.6.2)"]
 [metadata]
 lock-version = "2.1"
 python-versions = "<4.0,>=3.11"
-content-hash = "fd5ca2f8d18575dd71912b2b1c8af5a8060408de7c1336ccb746e1e8ae1e8d78"
+content-hash = "aaf748bfeacf6b1f4681b62b27a6305440cdc8864cdd70bc70a05eca791922bb"

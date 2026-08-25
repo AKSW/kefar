@@ -4,7 +4,6 @@ from typing import Annotated
 from urllib.parse import urlsplit, urlunsplit
 
 import jinja2
-import yaml
 from fastapi import Depends, FastAPI, Request
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.templating import Jinja2Templates
@@ -12,6 +11,7 @@ from jinja_rdf import get_context, register_filters
 from jinja_rdf.graph_handling import GraphToFilesystemHelper, TemplateSelectionHelper
 from jinja_rdf.rdf_resource import RDFResource
 from loguru import logger
+from mkdocs.config.base import load_config
 from mkdocs.utils import normalize_url
 from mkdocs.utils.templates import TemplateContext, script_tag_filter, url_filter
 from rdflib import Graph, URIRef
@@ -20,7 +20,6 @@ from rdflib.resource import Resource
 
 import plugins.datetime_format
 
-MKDOCS_YAML = "mkdocs.yml"
 THEME_DIR = "templates"
 DEFAULT_TEMPLATE = "base.html"
 
@@ -30,14 +29,9 @@ class dotdict(dict):
     __delattr__ = dict.__delitem__
 
 logger.debug(os.getcwd())
-mkdocs_config_path = Path(MKDOCS_YAML)
-if mkdocs_config_path.is_file():
-    with open(mkdocs_config_path, "r") as mkdocs_config_fp:
-        mkdocs_config = yaml.safe_load(mkdocs_config_fp)
-        config = dotdict(next(plugin["mkrdf"] for plugin in mkdocs_config["plugins"] if "mkrdf" in plugin))
-else:
-    logger.error("No config found")
 
+mkdocs_config = load_config()
+config = mkdocs_config.plugins.get("mkrdf").config
 
 """The resource_to_page dict is required since there is no backward relation from resource to a page."""
 def resource_iri_to_path(resource_iri):
