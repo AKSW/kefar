@@ -34,7 +34,7 @@ mkdocs_config = load_config()
 config = mkdocs_config.plugins.get("mkrdf").config
 
 """The resource_to_page dict is required since there is no backward relation from resource to a page."""
-def resource_iri_to_path(resource_iri):
+def resource_iri_to_path(resource_iri: URIRef) -> str:
     gtfh = GraphToFilesystemHelper(config.base_iri)
     path, fragment = gtfh.iri_to_path(resource_iri)
     if fragment:
