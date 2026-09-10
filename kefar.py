@@ -104,7 +104,7 @@ async def read_item(request: Request, full_path: str, graph: GraphDep):
     # TODO implement resource selection
 
     # Third, build a page for the resource
-    page = dotdict({"url": full_path, "meta": {}})
+    page = dotdict({"url": full_path, "meta": {}, "content": ""})
 
     base_iri = urlsplit(config.base_iri)
     logger.debug(base_iri)
