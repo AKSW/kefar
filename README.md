@@ -17,3 +17,12 @@ Kefar serves for the opposite scenario, best for a high update frequency of the 
 - is an acronym of the terms, Knowledge Graph, Exploration, FastAPI, Resources;
 - 🪲 sounds similar to the German word Käfer (engl. beetle);
 - can be read as a transliteration of the Hebrew word כפר while k'far or kfar is more common (engl. village).
+
+## Related Projects
+
+-> [read about the relation](https://github.com/AKSW/mkrdf/blob/main/README.md#jekyll-rdf)
+
+- [Jinja RDF](https://github.com/AKSW/jinja-rdf)
+- [MkRdf](https://github.com/AKSW/mkrdf)
+- [kisumu](https://github.com/AKSW/kisumu)
+- [Jekyll RDF](https://github.com/AKSW/jekyll-rdf)
