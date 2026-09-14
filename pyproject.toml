@@ -24,7 +24,8 @@ build-backend = "poetry.core.masonry.api"
 
 [dependency-groups]
 dev = [
-    "fastapi[standard] (>=0.141.1,<0.142.0)"
+    "fastapi[standard] (>=0.141.1,<0.142.0)",
+    "ruff (>=0.16.6,<0.17.0)"
 ]
 
 [project.entry-points."mkdocs.plugins"]
