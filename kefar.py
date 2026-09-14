@@ -15,7 +15,7 @@ from jinja_rdf.rdf_resource import RDFResource
 from loguru import logger
 from mkdocs.config.base import load_config
 from mkdocs.utils import get_build_datetime, meta, normalize_url
-from mkdocs.utils.templates import TemplateContext, script_tag_filter, url_filter
+from mkdocs.utils.templates import TemplateContext, script_tag_filter
 from rdflib import Graph, URIRef
 from rdflib.plugins.stores.sparqlstore import SPARQLStore
 from rdflib.resource import Resource
@@ -76,6 +76,18 @@ def iri_resolver(context: TemplateContext, value: str | URIRef | Resource) -> st
     # Also it doesn't matter if we calculate the path relative to the current file or its directory.
     return normalize_url(
         str(url),
+        page=dotdict({"url": context["page"].url.rpartition("/")[0] + "/"}),
+        base=context["base_url"],
+    )
+
+
+@jinja2.pass_context
+def url_filter(context: TemplateContext, value: str) -> str:
+    """A Template filter to normalize URLs that also works in our dynamic context."""
+    # Remove the current basename from the url, to fix that the mkdocs get_relative_url() method just omits basenames with a dot.
+    # Also it doesn't matter if we calculate the path relative to the current file or its directory.
+    return normalize_url(
+        str(value),
         page=dotdict({"url": context["page"].url.rpartition("/")[0] + "/"}),
         base=context["base_url"],
     )
